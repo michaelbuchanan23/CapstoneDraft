@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using CapstoneDraft.Models;
+using CapstoneDraft.ViewModels;
 using PrsEf;
 
 namespace CapstoneDraft.Controllers
@@ -15,8 +16,17 @@ namespace CapstoneDraft.Controllers
     {
         private CapstoneControllerContext db = new CapstoneControllerContext();
 
-        // GET: PurchaseRequests
-        public ActionResult Index()
+		public ActionResult LineitemsForPurchaseRequest(int? id) {
+			LineitemsForPurchaseRequest lineitemsForPurchaseRequest = new LineitemsForPurchaseRequest();
+			var purchaserequest = db.PurchaseRequests.Find(id);
+			var purchaserequestlineitems = db.PurchaseRequestLineitems.Where(o => o.PurchaseRequestId == id).ToList();
+			lineitemsForPurchaseRequest.PurchaseRequest = purchaserequest;
+			lineitemsForPurchaseRequest.PurchaseRequestLineitems = purchaserequestlineitems;
+			return View(lineitemsForPurchaseRequest);
+		}
+
+		// GET: PurchaseRequests
+		public ActionResult Index()
         {
             var purchaseRequests = db.PurchaseRequests.Include(p => p.User);
             return View(purchaseRequests.ToList());

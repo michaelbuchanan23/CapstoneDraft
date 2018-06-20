@@ -179,6 +179,9 @@
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\Vendor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\LineitemsForPurchaseRequest.cs" />
+    <Compile Include="ViewModels\ProductsForVendor.cs" />
+    <Compile Include="ViewModels\PurchaseRequestsForUser.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -246,6 +249,9 @@
     <Content Include="Views\PurchaseRequestLineitems\Details.cshtml" />
     <Content Include="Views\PurchaseRequestLineitems\Edit.cshtml" />
     <Content Include="Views\PurchaseRequestLineitems\Index.cshtml" />
+    <Content Include="Views\Users\PurchaseRequestsForUser.cshtml" />
+    <Content Include="Views\PurchaseRequests\LineitemsForPurchaseRequest.cshtml" />
+    <Content Include="Views\Vendors\ProductsForVendor.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -38,7 +38,8 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Vendor.Code)
+                @{string VendorCode = item.Vendor.Code;}
+                @Html.ActionLink(VendorCode, "Details", "Vendors", new { id = item.Id }, null)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.PartNumber)

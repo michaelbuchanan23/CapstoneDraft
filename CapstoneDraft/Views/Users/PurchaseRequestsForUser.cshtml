@@ -1,0 +1,63 @@
+﻿@model CapstoneDraft.ViewModels.PurchaseRequestsForUser
+
+@{
+    ViewBag.Title = "Purchase Requests For User";
+}
+
+<h2>Purchase Requests For @Model.User.Firstname</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            Description
+        </th>
+        <th>
+            Justification
+        </th>
+        <th>
+            Rejection Reason
+        </th>
+        <th>
+            Delivery Mode
+        </th>
+        <th>
+            Status
+        </th>
+        <th>
+            Total
+        </th>
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model.PurchaseRequests) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Justification)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RejectionReason)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DeliveryMode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Status)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Total)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", "PurchaseRequests", new { id = item.Id }, null) |
+            @Html.ActionLink("Details", "Details", "PurchaseRequests", new { id = item.Id }, null) |
+            @Html.ActionLink("Delete", "Delete", "PurchaseRequests", new { id = item.Id }, null)
+        </td>
+
+    </tr>
+    }
+
+
+
